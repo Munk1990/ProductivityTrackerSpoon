@@ -54,7 +54,6 @@ end
 
 
 local function zeroifnil(val2conv)
-    print(string.format("Zeroifnil val passed: %s", val2conv))
     if val2conv == nil then
         return 0
     else
@@ -76,7 +75,6 @@ end
 
 local function roundToDec(num, numDecimalPlaces)
   result = tonumber(string.format("%." .. (numDecimalPlaces or 0) .. "f", num))
-  print("command to round %s to %s decimal places, with result = %s", num, numDecimalPlaces, result)
   return result
 end
 
@@ -121,7 +119,6 @@ function obj:pauseOrResume()
         if obj.timer:running() then
             obj.timer:stop()
             obj.canvas[2].fillColor = hs.drawing.color.osx_yellow
-            print( self:getProductivityProgress())
             hs.notify.new({
                 title = self:getTimerProgress(),
                 informativeText = self:getProductivityProgress()
@@ -129,7 +126,6 @@ function obj:pauseOrResume()
         else
             obj.timer:start()
             obj.canvas[2].fillColor = hs.drawing.color.osx_red
-            print( self:getProductivityProgress())
             hs.notify.new({
                 title = self:getTimerProgress(),
                 informativeText = self:getProductivityProgress()
